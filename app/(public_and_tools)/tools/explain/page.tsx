@@ -5,7 +5,7 @@ import { promptSchema } from '@/features/tools/schemas/prompt.schema';
 import { useCompletion } from '@ai-sdk/react';
 import { ArrowLeft, BookOpen, Sparkles, Send, Loader2 } from 'lucide-react';
 import Link from 'next/link';
-import { ChangeEvent, FormEvent } from 'react';
+import { FormEvent } from 'react';
 import toast from 'react-hot-toast';
 
 export default function ExplainPage() {
@@ -15,12 +15,16 @@ export default function ExplainPage() {
     handleInputChange,
     handleSubmit,
     isLoading,
-    error
+    error,
+    setInput
   } = useCompletion({
     api: '/api/ai',
     streamProtocol: 'text',
     body: { type: 'explain' },
-    onFinish: () => toast.success("Analysis complete!"),
+    onFinish: () => {
+      toast.success("Analysis complete!")
+      setInput('')
+    },
     onError: (err) => toast.error("Quota reached or server error."),
   });
 
@@ -42,7 +46,7 @@ export default function ExplainPage() {
         <ArrowLeft size={16} /> Back to Tools
       </Link>
 
-      <div className="bg-zinc-900/30 border border-zinc-800 rounded-[2.5rem] overflow-hidden grid grid-cols-1 lg:grid-cols-2 min-h-[600px] flex-1">
+      <div className="bg-zinc-900/30 border border-zinc-800 rounded-[2.5rem] overflow-hidden grid grid-cols-1 lg:grid-cols-2 min-h-150 flex-1">
 
         <form onSubmit={(e) => submit(e)} className="p-4 pt-8 py-4 lg:p-8 border-b lg:border-b-0 lg:border-r border-zinc-800 flex flex-col gap-6">
           <div className="flex items-center justify-between">
@@ -58,7 +62,7 @@ export default function ExplainPage() {
             <textarea
               value={input}
               onChange={handleInputChange}
-              className="w-full h-full min-h-[300px] lg:min-h-full bg-transparent border-none font-mono text-sm focus:outline-none resize-none placeholder:text-zinc-700"
+              className="w-full h-full min-h-75 lg:min-h-full bg-transparent border-none font-mono text-sm focus:outline-none resize-none placeholder:text-zinc-700"
               placeholder="paste your function or logic here..."
               required
             />
@@ -80,7 +84,7 @@ export default function ExplainPage() {
           </div>
 
           <div className="flex-1 overflow-y-auto custom-scrollbar relative">
-            <div className="p-4 lg:p-8 pt-0 lg:pt-0 h-[500px] flex flex-col">
+            <div className="p-4 lg:p-8 pt-0 lg:pt-0 h-125 flex flex-col">
               {completion ? (
                 <div className="animate-in fade-in slide-in-from-bottom-2 duration-700 flex-1">
                   <FormattedOutput content={completion} />
@@ -90,14 +94,14 @@ export default function ExplainPage() {
                   <Sparkles size={32} />
                   <div className="space-y-1">
                     <p className="text-sm font-medium">Ready for input</p>
-                    <p className="text-xs max-w-[180px]">Analysis will appear here in real-time.</p>
+                    <p className="text-xs max-w-45">Analysis will appear here in real-time.</p>
                   </div>
                 </div>
               )}
             </div>
           </div>
 
-          <div className="absolute top-12 left-0 right-0 h-8 bg-gradient-to-b from-zinc-950/80 to-transparent pointer-events-none" />
+          <div className="absolute top-12 left-0 right-0 h-8 bg-linear-to-b from-zinc-950/80 to-transparent pointer-events-none" />
         </div>
       </div>
     </div>

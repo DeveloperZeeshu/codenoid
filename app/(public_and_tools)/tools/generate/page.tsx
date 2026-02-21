@@ -15,12 +15,16 @@ export default function GeneratorPage() {
     handleSubmit,
     input,
     isLoading,
-    error
+    error,
+    setInput
   } = useCompletion({
     api: '/api/ai',
     streamProtocol: 'text',
     body: { type: 'generate' },
-    onFinish: () => toast.success('Generation complete!'),
+    onFinish: () => {
+      toast.success('Generation complete!')
+      setInput('')
+    },
     onError: (err) => toast.error('Quota reached or server error.')
   })
 
@@ -42,7 +46,7 @@ export default function GeneratorPage() {
         <ArrowLeft size={16} /> Back to Tools
       </Link>
 
-      <div className="bg-zinc-900/30 border border-zinc-800 rounded-3xl lg:rounded-[2.5rem] overflow-hidden grid grid-cols-1 lg:grid-cols-2 min-h-[500px] lg:min-h-[600px]">
+      <div className="bg-zinc-900/30 border border-zinc-800 rounded-3xl lg:rounded-[2.5rem] overflow-hidden grid grid-cols-1 lg:grid-cols-2 min-h-125 lg:min-h-150">
 
         {/* Input Pane */}
         <form
@@ -86,7 +90,7 @@ export default function GeneratorPage() {
           </div>
 
           <div className="flex-1 overflow-y-auto custom-scrollbar">
-            <div className="p-4 lg:p-8 h-[500px]">
+            <div className="p-4 lg:p-8 h-125">
               {completion ? (
                 <FormattedOutput content={completion} />
               ) : (
