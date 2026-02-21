@@ -1,32 +1,24 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+.custom-scrollbar::-webkit-scrollbar { width: 5px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: #27272a; border-radius: 10px; }
+.custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
 
 
-::-webkit-scrollbar {
-    height: auto;
-    width: .8rem;
+.prose code::before,
+.prose code::after {
+  content: "" !important;
 }
 
-::-webkit-scrollbar-track {
-    background: transparent;
-    border-radius: .5rem;
-    cursor: pointer;
+.prose pre {
+  background-color: transparent !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
-::-webkit-scrollbar-thumb {
-    background: #585757;
-    border-radius: .5rem;
-    cursor: pointer;
-    background-clip: padding-box;
+.prose pre code {
+  background-color: transparent !important;
+  padding: 0 !important;
 }
-
-::-webkit-scrollbar-thumb:hover {
-    background: #908f8f;
-}
-
-
-/* .divres {
-    & li {
-        padding-left: 3rem;
-    }
-} */
-
