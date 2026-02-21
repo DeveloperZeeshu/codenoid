@@ -6,6 +6,7 @@
 * **Architecture Explainer**: Simplifies complex logic and design patterns.
 * **Security & Bug Auditor**: Scans code for vulnerabilities with remediation steps.
 * **Professional PDF Export**: Structured audit reports with formatted code blocks and severity scores.
+* **Secure Google OAuth Authentication**: Seamless and secure user login using Google OAuth 2.0.
 * **Performance-First Auth**: Session-based auth with JWT access tokens to minimize database overhead.
 
 ## 🛠️ Tech Stack
