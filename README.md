@@ -27,7 +27,7 @@
 
 1. **Clone the repository**
    ```bash
-   git clone [https://github.com/DeveloperZeeshu/codenoid.git](https://github.com/DeveloperZeeshu/codenoid.git)
+   git clone https://github.com/DeveloperZeeshu/codenoid.git
    cd codenoid
 
 2. **Install dependencies**
@@ -57,3 +57,9 @@
 4. **Run the Development Server**
     ```bash
     npm run dev
+
+
+---
+
+## 🙋‍♂️ Author
+Made with ❤️ by Jeesan Abbas
