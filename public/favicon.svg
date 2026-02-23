@@ -1,0 +1,12 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Blue rounded square -->
+  <rect x="10" y="10" width="180" height="180" rx="30" ry="30" fill="#2563EB"/>
+
+  <!-- Terminal icon -->
+  <g fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
+    <!-- > symbol -->
+    <polyline points="70,85 100,105 70,125"/>
+    <!-- underscore -->
+    <line x1="110" y1="125" x2="145" y2="125"/>
+  </g>
+</svg>

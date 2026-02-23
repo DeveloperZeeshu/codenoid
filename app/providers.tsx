@@ -1,3 +1,5 @@
+'use client'
+
 import { AuthInitializer } from "@/components/AuthInitializer"
 import { AppProvider } from "@/context/AppContext"
 import store from "@/store/store"
